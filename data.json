@@ -1,0 +1,100 @@
+{
+  "clinicName": "Shree Hari Clinic",
+  "doctor": {
+    "name": "Dr. Priya Rabadiya",
+    "image": "src/assets/doctor.png",
+    "credentials": [
+      { "icon": "🎓", "text": "MBBS, MD - Dermatology" },
+      { "icon": "🛡️", "text": "Fellowship in Aesthetic Medicine" }
+    ]
+  },
+  "hero": {
+    "badge": "EXPERT DERMATOLOGISTS",
+    "titlePrefix": "Expert Care for Your ",
+    "titleHighlight": "Skin & Health",
+    "description": "Dr. Priya Rabadiya provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
+    "badges": [
+      { "icon": "★", "text": "4.9/5 Patient Rating" },
+      { "icon": "✚", "text": "Advanced Treatments" }
+    ]
+  },
+  "about": {
+    "title": "Trusted Healthcare in Ankleshwar",
+    "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs.",
+    "address": "Candle Corner, 1, 2, Niyam Rd, G.I.D.C, Chokdi, Ankleshwar, Gujarat 393002",
+    "stats": [
+      { "number": "10+", "label": "Years of Excellence" },
+      { "number": "3", "label": "Clinic Locations" },
+      { "number": "7K+", "label": "Treatments Done" },
+      { "number": "FDA", "label": "Approved Tech" }
+    ]
+  },
+  "services": [
+    {
+      "title": "Skin Care",
+      "badge": "Specialty",
+      "description": "Comprehensive treatment for skin diseases, acne, pimples, and fungal infections using advanced diagnostic protocols.",
+      "linkText": "Learn more",
+      "linkUrl": "#contact",
+      "iconType": "skin",
+      "colorType": "blue"
+    },
+    {
+      "title": "Cosmetic",
+      "badge": "",
+      "description": "Hydra Facial, Skin Lightening and Brightening, Black Pigmentation treatment.",
+      "linkText": "Explore",
+      "linkUrl": "#contact",
+      "iconType": "cream",
+      "colorType": "berry"
+    },
+    {
+      "title": "Hair & Specialty",
+      "badge": "",
+      "description": "Advanced Hair Care solutions, alongside specialized management for Abscesses and Boils.",
+      "linkText": "View details",
+      "linkUrl": "#contact",
+      "iconType": "scissors",
+      "colorType": "blue"
+    },
+    {
+      "title": "General Practice",
+      "badge": "Holistic Care",
+      "description": "Integrating traditional General Physician services with Homeopathy for comprehensive wellness and root-cause treatment.",
+      "tags": ["Homeopathy", "Physician"],
+      "iconType": "cross",
+      "colorType": "green"
+    }
+  ],
+  "testimonials": {
+    "rating": "4.9",
+    "reviewsCount": "1,200+",
+    "reviewsSource": "Google Reviews",
+    "items": [
+      {
+        "name": "Rahul Sharma",
+        "verified": true,
+        "rating": 5,
+        "text": "Excellent care for my skin issues. Dr. Priya is very professional and explained the treatment clearly."
+      },
+      {
+        "name": "Anjali Patel",
+        "verified": true,
+        "rating": 5,
+        "text": "The best clinic in Ankleshwar for hair treatments. I saw results within a few weeks. Highly recommended!"
+      },
+      {
+        "name": "Vikram Singh",
+        "verified": true,
+        "rating": 5,
+        "text": "Very clean clinic and friendly staff. Dr. Priya's diagnosis was spot on for my chronic skin condition."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Schedule Your Consultation",
+    "description": "Take the first step towards healthier skin and body. Fill in your details below to request an appointment.",
+    "email": "info@shreehariclinic.com",
+    "phone": "+91 99999 99999"
+  }
+}
