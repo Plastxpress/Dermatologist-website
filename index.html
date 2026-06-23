@@ -25,7 +25,7 @@
         <div class="logo-text" id="navbarLogo">Loading Clinic...</div>
         <nav>
           <ul class="nav-links">
-            <li><a href="#aesthetic-care" class="nav-link active">Aesthetic Care</a></li>
+            <li><a href="#services" class="nav-link active">Services</a></li>
             <li><a href="#about" class="nav-link">About Clinic</a></li>
             <li><a href="#doctor-profile" class="nav-link">Doctor Profile</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -54,20 +54,21 @@
       </section>
 
       <!-- Premium Aesthetic Care Section -->
-      <section id="aesthetic-care" class="container aesthetic-care-section reveal-section">
-        <div class="section-header">
-          <span class="section-badge">CLINICAL EXCELLENCE</span>
-          <h2 class="headline-md">Premium Aesthetic Care</h2>
-          <p class="body-md" style="color: var(--color-on-surface-variant)">
-            State-of-the-art treatments designed to enhance and restore your skin and hair wellness.
-          </p>
-        </div>
-        <div class="aesthetic-care-grid" id="aestheticCareGrid">
-          <!-- Dynamically Injected Treatment Cards -->
+      <section id="aesthetic-care" class="aesthetic-care-section reveal-section">
+        <div class="container">
+          <div class="section-header aesthetic-section-header">
+            <span class="section-badge">OUR TREATMENTS</span>
+            <h2 class="headline-md">Premium Aesthetic Care</h2>
+            <p class="body-md" style="color: var(--color-on-surface-variant)">
+              World-class dermatology, cosmetic, and aesthetic treatments delivered with clinical precision and care.
+            </p>
+          </div>
+          <div class="aesthetic-care-grid" id="aestheticCareGrid">
+            <!-- Dynamically Injected -->
+          </div>
         </div>
       </section>
 
-      <!-- About Section -->
       <section id="about" class="container about-section reveal-section">
         <div class="about-content">
           <div>
@@ -111,7 +112,29 @@
         </div>
       </section>
 
+      <!-- Services Section -->
+      <section id="services" class="container services-section reveal-section">
+        <div class="section-header">
+          <span class="section-badge">OUR MEDICAL EXPERTISE</span>
+          <h2 class="headline-md">Services & Specialties</h2>
+          <p class="body-md" style="color: var(--color-on-surface-variant)" id="servicesSubtitle">
+            Specialized treatments tailored for your skin, hair, and overall health needs.
+          </p>
+        </div>
 
+        <!-- Services Filter Tabs -->
+        <div class="services-tabs-container">
+          <button class="service-tab-btn active" data-filter="all">All Services</button>
+          <button class="service-tab-btn" data-filter="skin">Skin Diseases</button>
+          <button class="service-tab-btn" data-filter="cosmetic">Aesthetic/Cosmetic</button>
+          <button class="service-tab-btn" data-filter="hair">Hair & Trichology</button>
+          <button class="service-tab-btn" data-filter="general">General & Wellness</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <!-- Dynamically Injected -->
+        </div>
+      </section>
 
       <!-- Elevated Doctor Profile Section -->
       <section id="doctor-profile" class="doctor-profile-section reveal-section">
@@ -463,6 +486,41 @@
           trustCertContainer.appendChild(badge);
         });
 
+        // Premium Aesthetic Care Section rendering
+        const aestheticCareGrid = document.getElementById('aestheticCareGrid');
+        if (aestheticCareGrid && data.aestheticCare) {
+          aestheticCareGrid.innerHTML = '';
+          data.aestheticCare.forEach((treatment, idx) => {
+            const card = document.createElement('div');
+            card.className = 'aesthetic-card reveal-stagger-item';
+            card.style.transitionDelay = `${idx * 0.1}s`;
+
+            const tagColorMap = { blue: '#006397', berry: '#b81153', green: '#006d37' };
+            const tagBgMap = { blue: 'rgba(52,152,219,0.1)', berry: 'rgba(184,17,83,0.1)', green: 'rgba(46,204,113,0.1)' };
+            const tagColor = tagColorMap[treatment.tagColor] || tagColorMap.blue;
+            const tagBg = tagBgMap[treatment.tagColor] || tagBgMap.blue;
+
+            card.innerHTML = `
+              <div class="aesthetic-card-img-wrap">
+                <img src="${treatment.image}" alt="${treatment.title}" class="aesthetic-card-img" loading="lazy" width="420" height="260" onerror="this.parentElement.classList.add('img-fallback-${treatment.tagColor || 'blue'}'); this.style.display='none';" />
+                <span class="aesthetic-card-tag" style="color:${tagColor}; background:${tagBg};">${treatment.tag}</span>
+              </div>
+              <div class="aesthetic-card-body">
+                <h3 class="aesthetic-card-title">${treatment.title}</h3>
+                <p class="aesthetic-card-desc">${treatment.description}</p>
+                <a href="#contact" class="aesthetic-card-cta">
+                  Book Appointment
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            `;
+            aestheticCareGrid.appendChild(card);
+          });
+        }
+
         // About section content
         document.getElementById('aboutTitle').textContent = data.about.title;
         document.getElementById('aboutDesc').textContent = data.about.description;
@@ -549,30 +607,93 @@
           mobileCallBtn.href = `tel:${data.contact.phone.replace(/\s+/g, '')}`;
         }
 
-        // 4. Premium Aesthetic Care Section rendering
-        const aestheticCareGrid = document.getElementById('aestheticCareGrid');
-        aestheticCareGrid.innerHTML = '';
-        data.aestheticCare.forEach((treatment, idx) => {
-          const card = document.createElement('div');
-          card.className = 'aesthetic-card hover-lift reveal-stagger-item';
-          card.style.transitionDelay = `${idx * 0.08}s`;
-          card.innerHTML = `
-            <div class="aesthetic-card-img-wrapper">
-              <img src="${treatment.image}" alt="${treatment.title}" class="aesthetic-card-img" loading="lazy" width="360" height="240" />
-            </div>
-            <div class="aesthetic-card-content">
-              <h3 class="title-lg aesthetic-card-title">${treatment.title}</h3>
-              <p class="body-md aesthetic-card-desc">${treatment.description}</p>
-              <a href="#contact" class="btn-primary aesthetic-card-btn">
-                Book Appointment
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          `;
-          aestheticCareGrid.appendChild(card);
+        // 4. Services Section with Filtering Functionality
+        let allServices = data.services;
+        const servicesGrid = document.getElementById('servicesGrid');
+        
+        function renderServices(servicesList) {
+          servicesGrid.innerHTML = '';
+          servicesList.forEach((service, idx) => {
+            const card = document.createElement('div');
+            card.className = 'service-card hover-lift reveal-stagger-item';
+            card.style.transitionDelay = `${idx * 0.08}s`;
+            
+            let iconSvg = '';
+            if (service.iconType === 'skin') {
+              iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`;
+            } else if (service.iconType === 'cream') {
+              iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7H5a7 7 0 0 0 7 7z"></path><path d="M19 15V9a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path><path d="M12 2v5"></path></svg>`;
+            } else if (service.iconType === 'scissors') {
+              iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>`;
+            } else {
+              iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`;
+            }
+            
+            let badgeHtml = '';
+            if (service.badge) {
+              const badgeClass = service.badge.toLowerCase().includes('holistic') ? 'holistic' : 'specialty';
+              badgeHtml = `<span class="service-badge ${badgeClass}">${service.badge}</span>`;
+            }
+
+            let tagsHtml = '';
+            if (service.tags && service.tags.length > 0) {
+              tagsHtml = `<div class="service-tags">` + 
+                service.tags.map(t => `<span class="service-tag"><span class="service-tag-icon">✔</span> ${t}</span>`).join('') +
+                `</div>`;
+            }
+
+            let linkHtml = '';
+            if (service.linkText) {
+              linkHtml = `
+                <a href="${service.linkUrl || '#contact'}" class="service-link ${service.colorType}">
+                  ${service.linkText}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              `;
+            }
+
+            card.innerHTML = `
+              <div class="service-top">
+                <div class="service-icon-box icon-${service.colorType}">
+                  ${iconSvg}
+                </div>
+                ${badgeHtml}
+              </div>
+              <h3 class="title-lg service-title">${service.title}</h3>
+              <p class="body-md service-desc">${service.description}</p>
+              ${tagsHtml}
+              ${linkHtml}
+            `;
+            servicesGrid.appendChild(card);
+          });
+        }
+
+        renderServices(allServices);
+
+        // Connect Service Tabs to logic
+        const serviceTabButtons = document.querySelectorAll('.service-tab-btn');
+        serviceTabButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            serviceTabButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-filter');
+            
+            servicesGrid.style.opacity = '0';
+            servicesGrid.style.transform = 'translateY(15px)';
+            
+            setTimeout(() => {
+              const filtered = category === 'all' 
+                ? allServices 
+                : allServices.filter(s => s.category === category);
+              renderServices(filtered);
+              servicesGrid.style.opacity = '1';
+              servicesGrid.style.transform = 'translateY(0)';
+            }, 250);
+          });
         });
 
         // 5. Clinic Gallery Section
@@ -606,11 +727,11 @@
         document.getElementById('contactDesc').textContent = data.contact.description;
         
         const problemAreaSelect = document.getElementById('problemArea');
-        problemAreaSelect.innerHTML = '<option value="" disabled selected>Select treatment...</option>';
-        data.aestheticCare.forEach(t => {
+        problemAreaSelect.innerHTML = '<option value="" disabled selected>Select medical issue...</option>';
+        data.services.forEach(s => {
           const opt = document.createElement('option');
-          opt.value = t.title;
-          opt.textContent = t.title;
+          opt.value = s.title;
+          opt.textContent = s.title;
           problemAreaSelect.appendChild(opt);
         });
         const otherOpt = document.createElement('option');

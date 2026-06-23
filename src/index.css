@@ -1996,83 +1996,168 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   Premium Aesthetic Care Section Styles
+   Premium Aesthetic Care Section
    ========================================================================== */
+
 .aesthetic-care-section {
   padding: 100px 0;
-  border-bottom: 1px solid var(--color-border-subtle);
+  background: linear-gradient(180deg, var(--color-surface-ice) 0%, var(--color-background) 100%);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.aesthetic-section-header {
+  margin-bottom: 56px;
 }
 
 .aesthetic-care-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 28px;
 }
 
+/* Individual Aesthetic Card */
 .aesthetic-card {
   background-color: var(--color-surface-container-lowest);
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--rounded-md);
+  border-radius: var(--rounded-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
-.aesthetic-card-img-wrapper {
+.aesthetic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 28px rgba(52, 152, 219, 0.12);
+  border-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Card Image Area */
+.aesthetic-card-img-wrap {
   position: relative;
+  width: 100%;
+  height: 220px;
   overflow: hidden;
-  height: 240px;
-  background-color: var(--color-surface-container-low);
+  background: linear-gradient(135deg, var(--color-surface-container-high) 0%, var(--color-surface-container) 100%);
+  flex-shrink: 0;
 }
 
 .aesthetic-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .aesthetic-card:hover .aesthetic-card-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-.aesthetic-card-content {
+/* Fallback gradient backgrounds when images missing */
+.img-fallback-blue {
+  background: linear-gradient(135deg, #cce5ff 0%, #e8f4fc 100%);
+}
+.img-fallback-berry {
+  background: linear-gradient(135deg, #ffd9df 0%, #fce8ef 100%);
+}
+.img-fallback-green {
+  background: linear-gradient(135deg, #c8f7e0 0%, #e8f8f0 100%);
+}
+
+/* Tag / Badge overlaid on image */
+.aesthetic-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Card Body */
+.aesthetic-card-body {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  gap: 12px;
   flex: 1;
 }
 
 .aesthetic-card-title {
-  margin-bottom: 12px;
-  color: var(--color-on-surface);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-on-background);
+  line-height: 1.3;
 }
 
 .aesthetic-card-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
   color: var(--color-on-surface-variant);
-  font-size: 15px;
-  line-height: 1.5;
-  margin-bottom: 24px;
+  line-height: 1.6;
   flex: 1;
 }
 
-.aesthetic-card-btn {
+/* Book Appointment CTA on each card */
+.aesthetic-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: var(--rounded-default);
+  text-decoration: none;
   align-self: flex-start;
-  font-size: 14px;
-  padding: 10px 20px;
+  transition: background-color 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
 }
 
-/* responsive overrides for Premium Aesthetic Care */
+.aesthetic-card-cta:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.04);
+}
+
+.aesthetic-card-cta:active {
+  transform: scale(0.97);
+}
+
+/* Responsive breakpoints */
 @media (max-width: 1024px) {
   .aesthetic-care-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    gap: 20px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .aesthetic-care-section {
+    padding: 64px 0;
+  }
+
   .aesthetic-care-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: 16px;
+  }
+
+  .aesthetic-card-img-wrap {
+    height: 200px;
   }
 }
+

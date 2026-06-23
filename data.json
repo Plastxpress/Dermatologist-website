@@ -104,39 +104,93 @@
     "stats": [
       { "number": "10+", "label": "Years of Excellence" },
       { "number": "7K+", "label": "Treatments Done" },
+      { "number": "4.9★", "label": "Patient Rating" },
       { "number": "FDA", "label": "Approved Tech" }
     ]
   },
   "aestheticCare": [
     {
       "title": "Hair Treatments",
-      "description": "Advanced therapies including FUE hair transplants, PRP scalp rejuvenation, and hair fall control protocols designed to restore thickness and vitality.",
-      "image": "src/assets/hair_treatment.png"
+      "description": "Restore fullness and shine with PRP therapy, scalp mesotherapy, and advanced hair transplantation techniques tailored to your hair type.",
+      "image": "src/assets/hair_treatment.png",
+      "tag": "Most Popular",
+      "tagColor": "berry"
     },
     {
       "title": "Skin Treatment",
-      "description": "Targeted therapies for acne scars, pigmentation, microdermabrasion, and clinical facials to restore a radiant and healthy complexion.",
-      "image": "src/assets/skin_treatment.png"
+      "description": "From Hydra Facial to chemical peels and skin brightening — our dermatologists design custom skin protocols for lasting radiance.",
+      "image": "src/assets/skin_treatment.png",
+      "tag": "Recommended",
+      "tagColor": "blue"
     },
     {
-      "title": "Plastic Surgery Treatments",
-      "description": "Premium cosmetic surgical consultations and procedures for facial contouring, rhinoplasty, and structural skin modifications.",
-      "image": "src/assets/plastic_surgery.png"
+      "title": "Plastic Surgery",
+      "description": "Precision aesthetic surgery from rhinoplasty to facial contouring. Board-certified expertise with natural, beautiful outcomes.",
+      "image": "src/assets/plastic_surgery.png",
+      "tag": "Specialist Care",
+      "tagColor": "green"
     },
     {
       "title": "Laser Treatment",
-      "description": "FDA-approved laser therapies for permanent hair reduction, skin resurfacing, and precise vascular or pigmentation treatments.",
-      "image": "src/assets/laser_treatment.png"
+      "description": "FDA-approved laser technology for acne scar reduction, pigmentation, hair removal, and skin resurfacing — painless and precise.",
+      "image": "src/assets/laser_treatment.png",
+      "tag": "FDA Approved",
+      "tagColor": "blue"
     },
     {
-      "title": "Dermatology treatment",
-      "description": "Comprehensive clinical diagnosis and medical care for complex skin conditions, eczema, psoriasis, rashes, and fungal infections.",
-      "image": "src/assets/dermatology_treatment.png"
+      "title": "Dermatology Treatment",
+      "description": "Expert diagnosis and treatment of eczema, psoriasis, rosacea, and other chronic skin conditions using evidence-based protocols.",
+      "image": "src/assets/dermatology_treatment.png",
+      "tag": "Clinical",
+      "tagColor": "berry"
     },
     {
-      "title": "Anti Ageing Treatment",
-      "description": "Restorative non-surgical treatments including clinical wrinkle reductions, dermal fillers, and thread lifts to regain youthful elasticity.",
-      "image": "src/assets/anti_ageing.png"
+      "title": "Anti-Ageing Treatment",
+      "description": "Turn back time with Botox, dermal fillers, collagen boosters and thread lifts — all performed with surgical precision by certified aesthetic doctors.",
+      "image": "src/assets/anti_ageing.png",
+      "tag": "Premium",
+      "tagColor": "green"
+    }
+  ],
+  "services": [
+    {
+      "title": "Skin Care",
+      "category": "skin",
+      "badge": "Specialty",
+      "description": "Comprehensive treatment for skin diseases, acne, pimples, and fungal infections using advanced diagnostic protocols.",
+      "linkText": "Learn more",
+      "linkUrl": "#contact",
+      "iconType": "skin",
+      "colorType": "blue"
+    },
+    {
+      "title": "Cosmetic",
+      "category": "cosmetic",
+      "badge": "",
+      "description": "Hydra Facial, Skin Lightening and Brightening, Black Pigmentation treatment.",
+      "linkText": "Explore",
+      "linkUrl": "#contact",
+      "iconType": "cream",
+      "colorType": "berry"
+    },
+    {
+      "title": "Hair & Specialty",
+      "category": "hair",
+      "badge": "",
+      "description": "Advanced Hair Care solutions, alongside specialized management for Abscesses and Boils.",
+      "linkText": "View details",
+      "linkUrl": "#contact",
+      "iconType": "scissors",
+      "colorType": "blue"
+    },
+    {
+      "title": "General Practice",
+      "category": "general",
+      "badge": "Holistic Care",
+      "description": "Integrating traditional General Physician services with Homeopathy for comprehensive wellness and root-cause treatment.",
+      "tags": ["Homeopathy", "Physician"],
+      "iconType": "cross",
+      "colorType": "green"
     }
   ],
   "testimonials": {
