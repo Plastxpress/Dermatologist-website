@@ -37,23 +37,9 @@
         </div>
       </section>
 
-      <!-- Why Choose Us Trust Banner -->
-      <section class="why-section">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="headline-md">Why Choose Us</h2>
-            <p class="body-md" style="color: var(--color-on-surface-variant)">
-              Delivering high-standard clinical precision and safety.
-            </p>
-          </div>
-          <div class="why-grid" id="whyGrid">
-            <!-- Dynamically Injected -->
-          </div>
-        </div>
-      </section>
 
       <!-- About Section -->
-      <section id="about" class="container about-section">
+      <section id="about" class="container about-section reveal-section">
         <div class="about-content">
           <div>
             <h2 class="headline-md" id="aboutTitle">Trusted Healthcare</h2>
@@ -94,7 +80,7 @@
       </section>
 
       <!-- Services Section -->
-      <section id="services" class="container services-section">
+      <section id="services" class="container services-section reveal-section">
         <div class="section-header">
           <h2 class="headline-md">Our Services</h2>
           <p class="body-md" style="color: var(--color-on-surface-variant)" id="servicesSubtitle">
@@ -108,7 +94,7 @@
       </section>
 
       <!-- Clinic Gallery Section -->
-      <section class="gallery-section">
+      <section class="gallery-section reveal-section">
         <div class="container">
           <div class="section-header">
             <h2 class="headline-md">Clinic Gallery</h2>
@@ -336,7 +322,7 @@
         data.hero.slides.forEach((slide, idx) => {
           // Create slide node
           const slideNode = document.createElement('div');
-          slideNode.className = 'hero-slide';
+          slideNode.className = `hero-slide ${idx === 0 ? 'active' : ''}`;
           slideNode.innerHTML = `
             <div class="hero-content">
               <div class="badge animate-fade-in">
@@ -385,20 +371,6 @@
           nextHeroSlide();
         }, 5000);
 
-        // 3. Why Choose Us Section
-        const whyGrid = document.getElementById('whyGrid');
-        whyGrid.innerHTML = '';
-        data.whyChooseUs.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'why-card hover-lift';
-          card.innerHTML = `
-            <div class="why-icon-box">${item.icon}</div>
-            <h3 class="title-lg why-card-title">${item.title}</h3>
-            <p class="why-card-desc">${item.description}</p>
-          `;
-          whyGrid.appendChild(card);
-        });
-
         // Doctor Card in About section
         const doctorImg = document.getElementById('doctorImg');
         doctorImg.src = data.doctor.image;
@@ -431,9 +403,10 @@
         // 4. Services Section
         const servicesGrid = document.getElementById('servicesGrid');
         servicesGrid.innerHTML = '';
-        data.services.forEach(service => {
+        data.services.forEach((service, idx) => {
           const card = document.createElement('div');
-          card.className = 'service-card hover-lift';
+          card.className = 'service-card hover-lift reveal-stagger-item';
+          card.style.transitionDelay = `${idx * 0.1}s`;
           
           let iconSvg = '';
           if (service.iconType === 'skin') {
@@ -490,9 +463,10 @@
         // 5. Clinic Gallery Section
         const galleryGrid = document.getElementById('galleryGrid');
         galleryGrid.innerHTML = '';
-        data.gallery.forEach(item => {
+        data.gallery.forEach((item, idx) => {
           const card = document.createElement('div');
-          card.className = 'gallery-card';
+          card.className = 'gallery-card reveal-stagger-item';
+          card.style.transitionDelay = `${idx * 0.15}s`;
           card.innerHTML = `
             <img src="${item.image}" alt="${item.title}" class="gallery-img" />
             <div class="gallery-overlay">${item.title}</div>
@@ -545,12 +519,26 @@
         `;
 
         document.getElementById('footerCopyright').textContent = `© ${new Date().getFullYear()} ${data.clinicName}. All rights reserved.`;
+
+        // Initialize scroll reveal and parallax calculations
+        initScrollReveal();
+        handleParallax();
       }
 
       // Hero Slider Controls
       function goToHeroSlide(idx) {
         currentHeroSlide = idx;
         heroSlidesContainer.style.transform = `translateX(-${idx * 100}%)`;
+
+        // Update active class for Ken Burns zoom reset
+        const slides = heroSlidesContainer.querySelectorAll('.hero-slide');
+        slides.forEach((slide, sIdx) => {
+          if (sIdx === idx) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+          }
+        });
         
         const dots = heroSliderDots.querySelectorAll('.slider-dot');
         dots.forEach((dot, dIdx) => {
@@ -560,6 +548,9 @@
             dot.classList.remove('active');
           }
         });
+
+        // Sync parallax calculations for newly entered slide
+        handleParallax();
       }
 
       function nextHeroSlide() {
@@ -747,6 +738,93 @@
         resetReviewForm();
         reviewFormCard.style.display = 'none';
         toggleReviewBtn.style.display = 'inline-flex';
+      });
+
+      // Global Scroll Reveal IntersectionObserver (mimicking viewport={{ once: true }})
+      function initScrollReveal() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target); // once: true behavior
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-section').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }
+
+      // Parallax scroll handler
+      let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Update isReducedMotion status if client preferences change
+      window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+        isReducedMotion = e.matches;
+        if (isReducedMotion) {
+          resetParallaxOffsets();
+        } else {
+          handleParallax();
+        }
+      });
+
+      function handleParallax() {
+        if (isReducedMotion) return;
+
+        const viewHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        // 1. Gallery parallax images
+        const galleryImgs = document.querySelectorAll('.gallery-card .gallery-img');
+        galleryImgs.forEach(img => {
+          const rect = img.getBoundingClientRect();
+          const elementTop = rect.top + scrollY;
+          const elementCenter = elementTop + rect.height / 2;
+          const viewportCenter = scrollY + viewHeight / 2;
+          const distanceFromCenter = elementCenter - viewportCenter;
+          
+          // Speed factor -0.04 for visual depth
+          const offset = distanceFromCenter * -0.04;
+          img.style.setProperty('--parallax-y', `${offset}px`);
+        });
+
+        // 2. Active hero slide image container parallax
+        const activeHeroContainer = document.querySelector('.hero-slide.active .hero-slide-img-container');
+        if (activeHeroContainer) {
+          const rect = activeHeroContainer.getBoundingClientRect();
+          const elementTop = rect.top + scrollY;
+          const elementCenter = elementTop + rect.height / 2;
+          const viewportCenter = scrollY + viewHeight / 2;
+          const distanceFromCenter = elementCenter - viewportCenter;
+          
+          const offset = distanceFromCenter * -0.05;
+          activeHeroContainer.style.setProperty('--parallax-y', `${offset}px`);
+        }
+      }
+
+      function resetParallaxOffsets() {
+        document.querySelectorAll('.gallery-img, .hero-slide-img-container').forEach(el => {
+          el.style.removeProperty('--parallax-y');
+        });
+      }
+
+      // Attach scroll event with requestAnimationFrame throttling for smooth FPS
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
       });
     </script>
   </body>
