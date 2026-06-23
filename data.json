@@ -1,7 +1,7 @@
 {
-  "clinicName": "Shree Hari Clinic",
+  "clinicName": "Radiant Skin Clinic",
   "doctor": {
-    "name": "Dr. Priya Rabadiya",
+    "name": "Dr. Amit Sharma",
     "image": "src/assets/doctor.png",
     "credentials": [
       { "icon": "🎓", "text": "MBBS, MD - Dermatology" },
@@ -12,7 +12,7 @@
     "badge": "EXPERT DERMATOLOGISTS",
     "titlePrefix": "Expert Care for Your ",
     "titleHighlight": "Skin & Health",
-    "description": "Dr. Priya Rabadiya provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
+    "description": "Dr. Amit Sharma provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
     "badges": [
       { "icon": "★", "text": "4.9/5 Patient Rating" },
       { "icon": "✚", "text": "Advanced Treatments" }
@@ -21,7 +21,7 @@
   "about": {
     "title": "Trusted Healthcare in Ankleshwar",
     "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs.",
-    "address": "Candle Corner, 1, 2, Niyam Rd, G.I.D.C, Chokdi, Ankleshwar, Gujarat 393002",
+    "address": "Suite 104, Horizon Heights, GC Road, Ankleshwar, Gujarat 393002",
     "stats": [
       { "number": "10+", "label": "Years of Excellence" },
       { "number": "3", "label": "Clinic Locations" },
@@ -75,7 +75,7 @@
         "name": "Rahul Sharma",
         "verified": true,
         "rating": 5,
-        "text": "Excellent care for my skin issues. Dr. Priya is very professional and explained the treatment clearly."
+        "text": "Excellent care for my skin issues. Dr. Amit is very professional and explained the treatment clearly."
       },
       {
         "name": "Anjali Patel",
@@ -87,14 +87,14 @@
         "name": "Vikram Singh",
         "verified": true,
         "rating": 5,
-        "text": "Very clean clinic and friendly staff. Dr. Priya's diagnosis was spot on for my chronic skin condition."
+        "text": "Very clean clinic and friendly staff. Dr. Amit's diagnosis was spot on for my chronic skin condition."
       }
     ]
   },
   "contact": {
     "title": "Schedule Your Consultation",
     "description": "Take the first step towards healthier skin and body. Fill in your details below to request an appointment.",
-    "email": "info@shreehariclinic.com",
-    "phone": "+91 99999 99999"
+    "email": "appointments@radiantskin.com",
+    "phone": "+91 88888 88888"
   }
 }
