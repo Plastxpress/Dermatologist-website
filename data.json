@@ -1,11 +1,11 @@
 {
-  "clinicName": "Shree Hari Clinic",
+  "clinicName": "Vibrant Skin & Hair Clinic",
   "doctor": {
-    "name": "Dr. Priya Rabadiya",
+    "name": "Dr. Amit Sharma",
     "image": "src/assets/doctor.png",
     "credentials": [
-      { "icon": "🎓", "text": "MBBS, MD - Dermatology" },
-      { "icon": "🛡️", "text": "Fellowship in Aesthetic Medicine" }
+      { "icon": "🎓", "text": "MBBS, MD - Dermatology & Venereology" },
+      { "icon": "🛡️", "text": "Fellowship in Lasers & Aesthetic Medicine" }
     ]
   },
   "hero": {
@@ -14,7 +14,7 @@
         "badge": "EXPERT DERMATOLOGISTS",
         "titlePrefix": "Expert Care for Your ",
         "titleHighlight": "Skin & Health",
-        "description": "Dr. Priya Rabadiya provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
+        "description": "Dr. Amit Sharma provides personalized dermatology, hair health, and general medicine solutions in Surat.",
         "image": "src/assets/hero_slide1.jpg",
         "ctaText": "Book Appointment"
       },
@@ -40,7 +40,7 @@
         "titleHighlight": "Consultation",
         "description": "Get diagnosed by certified medical experts for root-cause solutions to chronic dermatological issues.",
         "image": "src/assets/hero_slide4.jpg",
-        "ctaText": "Meet Dr. Priya"
+        "ctaText": "Meet Dr. Amit"
       }
     ],
     "badges": [
@@ -52,7 +52,7 @@
     {
       "icon": "👨‍⚕️",
       "title": "Qualified Doctor",
-      "description": "Led by Dr. Priya Rabadiya, a double-credentialed dermatologist with years of clinical expertise."
+      "description": "Led by Dr. Amit Sharma, a double-credentialed dermatologist with years of clinical expertise."
     },
     {
       "icon": "⚡",
@@ -76,9 +76,9 @@
     }
   ],
   "about": {
-    "title": "Trusted Healthcare in Ankleshwar",
-    "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs.",
-    "address": "Candle Corner, 1, 2, Niyam Rd, G.I.D.C, Chokdi, Ankleshwar, Gujarat 393002",
+    "title": "Trusted Healthcare in Surat",
+    "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs under the direction of Dr. Amit Sharma.",
+    "address": "102, Sun Plaza, Ring Road, Near Diamond Market, Surat, Gujarat 395002",
     "stats": [
       { "number": "10+", "label": "Years of Excellence" },
       { "number": "3", "label": "Clinic Locations" },
@@ -132,26 +132,26 @@
         "name": "Rahul Sharma",
         "verified": true,
         "rating": 5,
-        "text": "Excellent care for my skin issues. Dr. Priya is very professional and explained the treatment clearly."
+        "text": "Excellent care for my skin issues. Dr. Amit is very professional and explained the treatment clearly."
       },
       {
         "name": "Anjali Patel",
         "verified": true,
         "rating": 5,
-        "text": "The best clinic in Ankleshwar for hair treatments. I saw results within a few weeks. Highly recommended!"
+        "text": "The best clinic in Surat for hair treatments. I saw results within a few weeks. Highly recommended!"
       },
       {
         "name": "Vikram Singh",
         "verified": true,
         "rating": 5,
-        "text": "Very clean clinic and friendly staff. Dr. Priya's diagnosis was spot on for my chronic skin condition."
+        "text": "Very clean clinic and friendly staff. Dr. Amit's diagnosis was spot on for my chronic skin condition."
       }
     ]
   },
   "contact": {
     "title": "Schedule Your Consultation",
     "description": "Take the first step towards healthier skin and body. Fill in your details below to request an appointment.",
-    "email": "info@shreehariclinic.com",
-    "phone": "+91 99999 99999"
+    "email": "info@vibrantskinclinic.com",
+    "phone": "+91 98765 01234"
   }
 }
