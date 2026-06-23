@@ -1,7 +1,7 @@
 {
-  "clinicName": "Radiant Skin Clinic",
+  "clinicName": "Shree Hari Clinic",
   "doctor": {
-    "name": "Dr. Amit Sharma",
+    "name": "Dr. Priya Rabadiya",
     "image": "src/assets/doctor.png",
     "credentials": [
       { "icon": "🎓", "text": "MBBS, MD - Dermatology" },
@@ -9,19 +9,76 @@
     ]
   },
   "hero": {
-    "badge": "EXPERT DERMATOLOGISTS",
-    "titlePrefix": "Expert Care for Your ",
-    "titleHighlight": "Skin & Health",
-    "description": "Dr. Amit Sharma provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
+    "slides": [
+      {
+        "badge": "EXPERT DERMATOLOGISTS",
+        "titlePrefix": "Expert Care for Your ",
+        "titleHighlight": "Skin & Health",
+        "description": "Dr. Priya Rabadiya provides personalized dermatology, hair health, and general medicine solutions in Ankleshwar.",
+        "image": "src/assets/hero_slide1.jpg",
+        "ctaText": "Book Appointment"
+      },
+      {
+        "badge": "CLINICAL EXCELLENCE",
+        "titlePrefix": "Advanced Facials & ",
+        "titleHighlight": "Cosmetic Care",
+        "description": "Revitalize your skin with premium cosmetic therapies designed to restore youthful glow and eliminate dark spots.",
+        "image": "src/assets/hero_slide2.jpg",
+        "ctaText": "Explore Services"
+      },
+      {
+        "badge": "ADVANCED TECHNOLOGY",
+        "titlePrefix": "State-of-the-Art ",
+        "titleHighlight": "Laser Treatments",
+        "description": "Safe, FDA-approved laser technology targeting acne scars, pigmentation, and permanent hair reduction.",
+        "image": "src/assets/hero_slide3.jpg",
+        "ctaText": "View Laser Care"
+      },
+      {
+        "badge": "PATIENT-CENTRIC MEDICINE",
+        "titlePrefix": "Professional Medical ",
+        "titleHighlight": "Consultation",
+        "description": "Get diagnosed by certified medical experts for root-cause solutions to chronic dermatological issues.",
+        "image": "src/assets/hero_slide4.jpg",
+        "ctaText": "Meet Dr. Priya"
+      }
+    ],
     "badges": [
       { "icon": "★", "text": "4.9/5 Patient Rating" },
       { "icon": "✚", "text": "Advanced Treatments" }
     ]
   },
+  "whyChooseUs": [
+    {
+      "icon": "👨‍⚕️",
+      "title": "Qualified Doctor",
+      "description": "Led by Dr. Priya Rabadiya, a double-credentialed dermatologist with years of clinical expertise."
+    },
+    {
+      "icon": "⚡",
+      "title": "Advanced Tech",
+      "description": "Utilizing FDA-approved laser technology and sterile, modern medical equipment for all procedures."
+    },
+    {
+      "icon": "🏆",
+      "title": "Excellent Results",
+      "description": "Over 7,000 successful treatments delivering high satisfaction rates for skin, hair, and cosmetic needs."
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Clinical Reception Area",
+      "image": "src/assets/gallery_reception.png"
+    },
+    {
+      "title": "Consulting Room",
+      "image": "src/assets/gallery_consulting.png"
+    }
+  ],
   "about": {
     "title": "Trusted Healthcare in Ankleshwar",
     "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs.",
-    "address": "Suite 104, Horizon Heights, GC Road, Ankleshwar, Gujarat 393002",
+    "address": "Candle Corner, 1, 2, Niyam Rd, G.I.D.C, Chokdi, Ankleshwar, Gujarat 393002",
     "stats": [
       { "number": "10+", "label": "Years of Excellence" },
       { "number": "3", "label": "Clinic Locations" },
@@ -75,7 +132,7 @@
         "name": "Rahul Sharma",
         "verified": true,
         "rating": 5,
-        "text": "Excellent care for my skin issues. Dr. Amit is very professional and explained the treatment clearly."
+        "text": "Excellent care for my skin issues. Dr. Priya is very professional and explained the treatment clearly."
       },
       {
         "name": "Anjali Patel",
@@ -87,14 +144,14 @@
         "name": "Vikram Singh",
         "verified": true,
         "rating": 5,
-        "text": "Very clean clinic and friendly staff. Dr. Amit's diagnosis was spot on for my chronic skin condition."
+        "text": "Very clean clinic and friendly staff. Dr. Priya's diagnosis was spot on for my chronic skin condition."
       }
     ]
   },
   "contact": {
     "title": "Schedule Your Consultation",
     "description": "Take the first step towards healthier skin and body. Fill in your details below to request an appointment.",
-    "email": "appointments@radiantskin.com",
-    "phone": "+91 88888 88888"
+    "email": "info@shreehariclinic.com",
+    "phone": "+91 99999 99999"
   }
 }

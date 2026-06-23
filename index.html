@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="src/index.css" />
   </head>
   <body>
+    <!-- Sticky Book Appointment Button for Mobile -->
+    <a href="#contact" class="btn-primary sticky-booking-btn">Book Appointment</a>
+
     <!-- Navigation Bar -->
     <header class="navbar">
       <div class="container">
@@ -24,50 +27,27 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
-      <section class="container hero-section">
-        <div class="hero-content">
-          <div class="badge animate-fade-in" id="heroBadgeContainer">
-            <span class="badge-icon"></span>
-            <span id="heroBadgeText">EXPERT DERMATOLOGISTS</span>
-          </div>
-          
-          <h1 class="display-lg hero-title animate-fade-in delay-1" id="heroTitle">
-            Expert Care for Your <span>Skin &amp; Health</span>
-          </h1>
-          
-          <p class="body-lg hero-desc animate-fade-in delay-2" id="heroDesc">
-            Loading doctor details...
-          </p>
-          
-          <div class="hero-actions animate-fade-in delay-3">
-            <a href="#contact" class="btn-primary">
-              Book Appointment
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="#about" class="btn-secondary">
-              Get Directions
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-              </svg>
-            </a>
-          </div>
-
-          <div class="hero-badges-row animate-fade-in delay-4" id="heroBadgesRow">
-            <!-- Dynamically Injected -->
-          </div>
+      <!-- Multi-slide Hero Section -->
+      <section class="hero-slider-wrapper">
+        <div class="hero-slides-container" id="heroSlidesContainer">
+          <!-- Dynamically Injected Slides -->
         </div>
+        <div class="slider-dots" id="heroSliderDots">
+          <!-- Dynamically Injected Dots -->
+        </div>
+      </section>
 
-        <div class="hero-image-container animate-fade-in delay-2">
-          <div class="doctor-card">
-            <img src="" alt="Doctor Portrait" class="doctor-img" id="doctorImg" />
-            <div class="doctor-credentials" id="doctorCredentials">
-              <span class="cred-title">EDUCATION &amp; CREDENTIALS</span>
-              <!-- Dynamically Injected -->
-            </div>
+      <!-- Why Choose Us Trust Banner -->
+      <section class="why-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="headline-md">Why Choose Us</h2>
+            <p class="body-md" style="color: var(--color-on-surface-variant)">
+              Delivering high-standard clinical precision and safety.
+            </p>
+          </div>
+          <div class="why-grid" id="whyGrid">
+            <!-- Dynamically Injected -->
           </div>
         </div>
       </section>
@@ -96,17 +76,27 @@
               <p id="aboutAddress">Loading address...</p>
             </div>
           </div>
+
+          <div class="stats-card" id="statsCard" style="width: 100%; border: none; padding: 0; box-shadow: none; margin-top: 16px;">
+            <!-- Dynamically Injected Stats -->
+          </div>
         </div>
 
-        <div class="stats-card" id="statsCard">
-          <!-- Dynamically Injected -->
+        <div class="hero-image-container">
+          <div class="doctor-card">
+            <img src="" alt="Doctor Portrait" class="doctor-img" id="doctorImg" />
+            <div class="doctor-credentials" id="doctorCredentials">
+              <span class="cred-title">EDUCATION &amp; CREDENTIALS</span>
+              <!-- Dynamically Injected -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Services Section -->
       <section id="services" class="container services-section">
         <div class="section-header">
-          <h2 class="headline-md">Our Expertise</h2>
+          <h2 class="headline-md">Our Services</h2>
           <p class="body-md" style="color: var(--color-on-surface-variant)" id="servicesSubtitle">
             Specialized treatments tailored for your skin, hair, and overall health needs.
           </p>
@@ -114,6 +104,21 @@
 
         <div class="services-grid" id="servicesGrid">
           <!-- Dynamically Injected -->
+        </div>
+      </section>
+
+      <!-- Clinic Gallery Section -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="headline-md">Clinic Gallery</h2>
+            <p class="body-md" style="color: var(--color-on-surface-variant)">
+              Take a look inside our clean, state-of-the-art facilities.
+            </p>
+          </div>
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamically Injected -->
+          </div>
         </div>
       </section>
 
@@ -130,8 +135,14 @@
             </div>
           </div>
 
-          <div class="testimonials-grid" id="testimonialsGrid">
-            <!-- Dynamically Injected -->
+          <!-- Carousel Testimonials Wrapper -->
+          <div class="testimonials-slider-wrapper">
+            <div class="testimonials-slides-container" id="testimonialsSlidesContainer">
+              <!-- Dynamically Injected Testimonials Slides -->
+            </div>
+            <div class="slider-dots" id="testimonialsSliderDots" style="position: relative; bottom: 0; margin-top: 24px;">
+              <!-- Dynamically Injected Dots -->
+            </div>
           </div>
 
           <div class="review-form-container">
@@ -283,6 +294,16 @@
     </footer>
 
     <script>
+      let currentHeroSlide = 0;
+      let totalHeroSlides = 0;
+      let heroSlidesContainer = document.getElementById('heroSlidesContainer');
+      let heroSliderDots = document.getElementById('heroSliderDots');
+
+      let currentTestimonialSlide = 0;
+      let totalTestimonialSlides = 0;
+      let testimonialSlidesContainer = document.getElementById('testimonialsSlidesContainer');
+      let testimonialSliderDots = document.getElementById('testimonialsSliderDots');
+
       // Load and Inject Template Data
       document.addEventListener('DOMContentLoaded', () => {
         fetch('data.json')
@@ -307,22 +328,78 @@
           metaDesc.setAttribute('content', `${data.clinicName}, led by ${data.doctor.name}, offers expert dermatology, cosmetic skin treatments, and general health care.`);
         }
 
-        // 2. Hero Section
-        document.getElementById('heroBadgeText').textContent = data.hero.badge;
-        document.getElementById('heroTitle').innerHTML = `${data.hero.titlePrefix}<span>${data.hero.titleHighlight}</span>`;
-        document.getElementById('heroDesc').textContent = data.hero.description;
+        // 2. Multi-Slide Hero Section
+        heroSlidesContainer.innerHTML = '';
+        heroSliderDots.innerHTML = '';
+        totalHeroSlides = data.hero.slides.length;
         
-        // Hero Badges
-        const heroBadgesRow = document.getElementById('heroBadgesRow');
-        heroBadgesRow.innerHTML = '';
-        data.hero.badges.forEach(badge => {
-          const item = document.createElement('div');
-          item.className = 'hero-badge-item';
-          item.innerHTML = `<span class="hero-badge-icon">★</span> ${badge.text}`;
-          heroBadgesRow.appendChild(item);
+        data.hero.slides.forEach((slide, idx) => {
+          // Create slide node
+          const slideNode = document.createElement('div');
+          slideNode.className = 'hero-slide';
+          slideNode.innerHTML = `
+            <div class="hero-content">
+              <div class="badge animate-fade-in">
+                <span class="badge-icon"></span>
+                ${slide.badge}
+              </div>
+              <h1 class="display-lg hero-title animate-fade-in delay-1">
+                ${slide.titlePrefix}<span>${slide.titleHighlight}</span>
+              </h1>
+              <p class="body-lg hero-desc animate-fade-in delay-2">
+                ${slide.description}
+              </p>
+              <div class="hero-actions animate-fade-in delay-3">
+                <a href="#contact" class="btn-primary">
+                  ${slide.ctaText}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a href="#about" class="btn-secondary">
+                  Get Directions
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="hero-slide-img-container animate-fade-in delay-2">
+              <img src="${slide.image}" alt="${slide.badge}" class="hero-slide-img" />
+            </div>
+          `;
+          heroSlidesContainer.appendChild(slideNode);
+
+          // Create dot node
+          const dotNode = document.createElement('button');
+          dotNode.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+          dotNode.addEventListener('click', () => {
+            goToHeroSlide(idx);
+          });
+          heroSliderDots.appendChild(dotNode);
         });
 
-        // Doctor Card
+        // Initialize Auto Slide transition
+        setInterval(() => {
+          nextHeroSlide();
+        }, 5000);
+
+        // 3. Why Choose Us Section
+        const whyGrid = document.getElementById('whyGrid');
+        whyGrid.innerHTML = '';
+        data.whyChooseUs.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'why-card hover-lift';
+          card.innerHTML = `
+            <div class="why-icon-box">${item.icon}</div>
+            <h3 class="title-lg why-card-title">${item.title}</h3>
+            <p class="why-card-desc">${item.description}</p>
+          `;
+          whyGrid.appendChild(card);
+        });
+
+        // Doctor Card in About section
         const doctorImg = document.getElementById('doctorImg');
         doctorImg.src = data.doctor.image;
         doctorImg.alt = data.doctor.name;
@@ -336,7 +413,7 @@
           credentialsBox.appendChild(item);
         });
 
-        // 3. About Section
+        // About section content
         document.getElementById('aboutTitle').textContent = data.about.title;
         document.getElementById('aboutDesc').textContent = data.about.description;
         document.getElementById('aboutAddress').textContent = data.about.address;
@@ -410,7 +487,20 @@
           servicesGrid.appendChild(card);
         });
 
-        // 5. Testimonials Section
+        // 5. Clinic Gallery Section
+        const galleryGrid = document.getElementById('galleryGrid');
+        galleryGrid.innerHTML = '';
+        data.gallery.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'gallery-card';
+          card.innerHTML = `
+            <img src="${item.image}" alt="${item.title}" class="gallery-img" />
+            <div class="gallery-overlay">${item.title}</div>
+          `;
+          galleryGrid.appendChild(card);
+        });
+
+        // 6. Testimonials Carousel Section
         const ratingPill = document.getElementById('ratingPill');
         ratingPill.innerHTML = `
           <strong>${data.testimonials.rating}</strong>
@@ -420,26 +510,9 @@
           <span class="g-icon">G</span>
         `;
         
-        const testimonialsGrid = document.getElementById('testimonialsGrid');
-        testimonialsGrid.innerHTML = '';
-        data.testimonials.items.forEach(review => {
-          const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-          const card = document.createElement('div');
-          card.className = 'testimonial-card';
-          card.innerHTML = `
-            <div class="testimonial-header">
-              <div class="patient-info">
-                <h4>${review.name}</h4>
-              </div>
-              ${review.verified ? `<span class="verified-badge">VERIFIED</span>` : ''}
-            </div>
-            <div class="testimonial-stars" style="color: var(--color-secondary);">${starsHtml}</div>
-            <p class="testimonial-text">"${review.text}"</p>
-          `;
-          testimonialsGrid.appendChild(card);
-        });
+        renderTestimonialsCarousel(data.testimonials.items);
 
-        // 6. Contact Form Setup
+        // 7. Contact Form Setup
         document.getElementById('contactTitle').textContent = data.contact.title;
         document.getElementById('contactDesc').textContent = data.contact.description;
         
@@ -456,7 +529,7 @@
         otherOpt.textContent = 'Other Issues';
         problemAreaSelect.appendChild(otherOpt);
 
-        // 7. Footer
+        // 8. Footer Contact
         document.getElementById('footerDesc').textContent = `Advanced clinical dermatology, cosmetic care, and general medicine services by ${data.doctor.name}.`;
         
         const footerContact = document.getElementById('footerContact');
@@ -472,6 +545,90 @@
         `;
 
         document.getElementById('footerCopyright').textContent = `© ${new Date().getFullYear()} ${data.clinicName}. All rights reserved.`;
+      }
+
+      // Hero Slider Controls
+      function goToHeroSlide(idx) {
+        currentHeroSlide = idx;
+        heroSlidesContainer.style.transform = `translateX(-${idx * 100}%)`;
+        
+        const dots = heroSliderDots.querySelectorAll('.slider-dot');
+        dots.forEach((dot, dIdx) => {
+          if (dIdx === idx) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      function nextHeroSlide() {
+        let nextIdx = currentHeroSlide + 1;
+        if (nextIdx >= totalHeroSlides) {
+          nextIdx = 0;
+        }
+        goToHeroSlide(nextIdx);
+      }
+
+      // Testimonials Carousel Controls
+      function renderTestimonialsCarousel(items) {
+        testimonialSlidesContainer.innerHTML = '';
+        testimonialSliderDots.innerHTML = '';
+        totalTestimonialSlides = items.length;
+
+        items.forEach((review, idx) => {
+          const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+          const slide = document.createElement('div');
+          slide.className = 'testimonial-slide';
+          slide.innerHTML = `
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="patient-info">
+                  <h4>${review.name}</h4>
+                </div>
+                ${review.verified ? `<span class="verified-badge">VERIFIED</span>` : ''}
+              </div>
+              <div class="testimonial-stars" style="color: var(--color-secondary);">${starsHtml}</div>
+              <p class="testimonial-text">"${review.text}"</p>
+            </div>
+          `;
+          testimonialSlidesContainer.appendChild(slide);
+
+          // Dot control
+          const dotNode = document.createElement('button');
+          dotNode.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+          dotNode.addEventListener('click', () => {
+            goToTestimonialSlide(idx);
+          });
+          testimonialSliderDots.appendChild(dotNode);
+        });
+
+        // Initialize Auto Testimonial Slide transitions
+        setInterval(() => {
+          nextTestimonialSlide();
+        }, 6000);
+      }
+
+      function goToTestimonialSlide(idx) {
+        currentTestimonialSlide = idx;
+        testimonialSlidesContainer.style.transform = `translateX(-${idx * 100}%)`;
+        
+        const dots = testimonialSliderDots.querySelectorAll('.slider-dot');
+        dots.forEach((dot, dIdx) => {
+          if (dIdx === idx) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      function nextTestimonialSlide() {
+        let nextIdx = currentTestimonialSlide + 1;
+        if (nextIdx >= totalTestimonialSlides) {
+          nextIdx = 0;
+        }
+        goToTestimonialSlide(nextIdx);
       }
 
       // Simple interactive javascript for navigating active links
@@ -552,24 +709,41 @@
         const rating = parseInt(ratingInput.value) || 5;
         const text = document.getElementById('reviewText').value;
 
+        // Build dynamically added review slide
         const starsHtml = '★'.repeat(rating) + '☆'.repeat(5 - rating);
 
-        const newCard = document.createElement('div');
-        newCard.className = 'testimonial-card';
-        newCard.style.animation = 'fadeInUp 0.6s ease forwards';
-        newCard.innerHTML = `
-          <div class="testimonial-header">
-            <div class="patient-info">
-              <h4>${name}</h4>
+        const newSlide = document.createElement('div');
+        newSlide.className = 'testimonial-slide';
+        newSlide.innerHTML = `
+          <div class="testimonial-card" style="animation: fadeInUp 0.6s ease forwards;">
+            <div class="testimonial-header">
+              <div class="patient-info">
+                <h4>${name}</h4>
+              </div>
+              <span class="verified-badge">VERIFIED</span>
             </div>
-            <span class="verified-badge">VERIFIED</span>
+            <div class="testimonial-stars" style="color: var(--color-secondary);">${starsHtml}</div>
+            <p class="testimonial-text">"${text}"</p>
           </div>
-          <div class="testimonial-stars" style="color: var(--color-secondary);">${starsHtml}</div>
-          <p class="testimonial-text">"${text}"</p>
         `;
 
-        document.getElementById('testimonialsGrid').appendChild(newCard);
+        // Append to container
+        testimonialSlidesContainer.appendChild(newSlide);
+        totalTestimonialSlides = testimonialSlidesContainer.children.length;
 
+        // Add dot control
+        const newDotIdx = totalTestimonialSlides - 1;
+        const dotNode = document.createElement('button');
+        dotNode.className = 'slider-dot';
+        dotNode.addEventListener('click', () => {
+          goToTestimonialSlide(newDotIdx);
+        });
+        testimonialSliderDots.appendChild(dotNode);
+
+        // Go to new slide
+        goToTestimonialSlide(newDotIdx);
+
+        // Reset and close
         resetReviewForm();
         reviewFormCard.style.display = 'none';
         toggleReviewBtn.style.display = 'inline-flex';

@@ -1146,3 +1146,233 @@ button, input, select, textarea {
 .star-select-item.selected {
   color: #f1c40f;
 }
+
+/* Hero Slider Wrapper & Slides */
+.hero-slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-slides-container {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: 64px var(--space-md);
+  box-sizing: border-box;
+}
+
+.hero-slide-img-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-slide-img {
+  width: 100%;
+  max-width: 440px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--rounded-xl);
+  box-shadow: var(--shadow-level-3);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 24px;
+  width: 100%;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-surface-dim);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+}
+
+.slider-dot.active {
+  background-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+/* Why Choose Us Section */
+.why-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-ice);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.why-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--rounded-lg);
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.why-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(52, 152, 219, 0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.why-card-title {
+  color: var(--color-on-background);
+}
+
+.why-card-desc {
+  color: var(--color-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: var(--rounded-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-level-2);
+  border: 1px solid var(--color-border-subtle);
+  aspect-ratio: 16/10;
+  cursor: pointer;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-card:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 24px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Testimonials Carousel Slider */
+.testimonials-slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 32px;
+}
+
+.testimonials-slides-container {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-slide .testimonial-card {
+  width: 100%;
+  max-width: 600px;
+  box-shadow: var(--shadow-level-3);
+  margin-bottom: 24px;
+}
+
+/* Sticky Booking Action Button for Mobile */
+.sticky-booking-btn {
+  display: none;
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  animation: pulse 2.5s infinite ease-in-out;
+  border-radius: var(--rounded-full);
+}
+
+@media (max-width: 1024px) {
+  .hero-slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .hero-slide-img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .sticky-booking-btn {
+    display: inline-flex;
+  }
+}
