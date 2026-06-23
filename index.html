@@ -6,6 +6,8 @@
     <title>Clinical Landing Page Template</title>
     <meta name="description" content="Expert clinical dermatology, cosmetic treatments, and general health services." />
     <link rel="stylesheet" href="src/index.css" />
+    <!-- AOS Animate On Scroll Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <!-- Persistent Sticky Mobile Bar -->
@@ -32,8 +34,29 @@
           </ul>
         </nav>
         <a href="#contact" class="btn-primary btn-navbar-cta cta-pulse">Book Appointment</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="logo-text" id="drawerLogo">Loading Clinic...</div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close Navigation">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#about" class="mobile-nav-link">About Clinic</a></li>
+        <li><a href="#doctor-profile" class="mobile-nav-link">Doctor Profile</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-primary btn-drawer-cta">Book Appointment</a>
+    </div>
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
 
     <main>
       <!-- Multi-slide Hero Section -->
@@ -54,8 +77,8 @@
       </section>
 
       <!-- Premium Aesthetic Care Section -->
-      <section id="aesthetic-care" class="aesthetic-care-section reveal-section">
-        <div class="container">
+      <section id="aesthetic-care" class="aesthetic-care-section">
+        <div class="container" data-aos="fade-right">
           <div class="section-header aesthetic-section-header">
             <span class="section-badge">OUR TREATMENTS</span>
             <h2 class="headline-md">Premium Aesthetic Care</h2>
@@ -69,8 +92,8 @@
         </div>
       </section>
 
-      <section id="about" class="container about-section reveal-section">
-        <div class="about-content">
+      <section id="about" class="container about-section">
+        <div class="about-content" data-aos="fade-right">
           <div>
             <span class="section-badge">ABOUT OUR CLINIC</span>
             <h2 class="headline-md" id="aboutTitle">Trusted Healthcare</h2>
@@ -95,7 +118,7 @@
           </div>
         </div>
 
-        <div class="hero-image-container clinic-preview-container">
+        <div class="hero-image-container clinic-preview-container" data-aos="fade-left">
           <div class="clinic-preview-card">
             <img src="src/assets/gallery_reception.png" alt="Clinical reception area" class="clinic-preview-img" id="aboutClinicImg" loading="lazy" width="480" height="320" />
             <div class="clinic-preview-tag">VIBRANT CLINIC LOBBY</div>
@@ -104,8 +127,8 @@
       </section>
 
       <!-- Key Insights / Highlights Section -->
-      <section class="insights-section reveal-section" id="insights">
-        <div class="container">
+      <section class="insights-section" id="insights">
+        <div class="container" data-aos="fade-left">
           <div class="insights-grid" id="insightsGrid">
             <!-- Dynamically Injected Key Insights Stats Cards -->
           </div>
@@ -113,7 +136,7 @@
       </section>
 
       <!-- Services Section -->
-      <section id="services" class="container services-section reveal-section">
+      <section id="services" class="container services-section" data-aos="fade-right">
         <div class="section-header">
           <span class="section-badge">OUR MEDICAL EXPERTISE</span>
           <h2 class="headline-md">Services & Specialties</h2>
@@ -137,15 +160,15 @@
       </section>
 
       <!-- Elevated Doctor Profile Section -->
-      <section id="doctor-profile" class="doctor-profile-section reveal-section">
+      <section id="doctor-profile" class="doctor-profile-section">
         <div class="container">
           <div class="doctor-portal-grid">
-            <div class="doctor-portal-image">
+            <div class="doctor-portal-image" data-aos="fade-right">
               <img src="" alt="Doctor Portrait" class="doctor-portal-img" id="doctorPortalImg" loading="lazy" width="440" height="520" />
               <div class="doctor-badge-overlay" id="doctorPortalBadge">Chief Dermatologist</div>
             </div>
             
-            <div class="doctor-portal-info">
+            <div class="doctor-portal-info" data-aos="fade-left">
               <div class="doctor-header">
                 <span class="section-badge">EXPERT DOCTOR PORTAL</span>
                 <h2 class="headline-md" id="doctorPortalName">Dr. Amit Sharma</h2>
@@ -196,8 +219,8 @@
       </section>
 
       <!-- Clinic Gallery Section -->
-      <section class="gallery-section reveal-section">
-        <div class="container">
+      <section class="gallery-section">
+        <div class="container" data-aos="fade-left">
           <div class="section-header">
             <h2 class="headline-md">Clinic Gallery</h2>
             <p class="body-md" style="color: var(--color-on-surface-variant)">
@@ -212,7 +235,7 @@
 
       <!-- Testimonials Section -->
       <section class="testimonials-section">
-        <div class="container">
+        <div class="container" data-aos="fade-right">
           <div class="section-header">
             <h2 class="headline-md">What Our Patients Say</h2>
           </div>
@@ -279,7 +302,7 @@
 
       <!-- Contact/Appointment Section (CTA Area) -->
       <section id="contact" style="padding: 80px 0; border-top: 1px solid var(--color-border-subtle);">
-        <div class="container" style="max-width: 700px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center;">
+        <div class="container" data-aos="fade-left" style="max-width: 700px; display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center;">
           <div>
             <h2 class="headline-md" id="contactTitle">Schedule Your Consultation</h2>
             <p class="body-md" style="color: var(--color-on-surface-variant); margin-top: 8px;" id="contactDesc">
@@ -409,6 +432,7 @@
         document.title = `${data.clinicName} - ${data.doctor.name} | Expert Dermatology`;
         document.getElementById('navbarLogo').textContent = data.clinicName;
         document.getElementById('footerLogo').textContent = data.clinicName;
+        document.getElementById('drawerLogo').textContent = data.clinicName;
         
         // Update document meta description
         const metaDesc = document.querySelector('meta[name="description"]');
@@ -692,6 +716,9 @@
               renderServices(filtered);
               servicesGrid.style.opacity = '1';
               servicesGrid.style.transform = 'translateY(0)';
+              if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+              }
             }, 250);
           });
         });
@@ -756,8 +783,16 @@
 
         document.getElementById('footerCopyright').textContent = `© ${new Date().getFullYear()} ${data.clinicName}. All rights reserved.`;
 
-        // Initialize scroll reveal and parallax calculations
-        initScrollReveal();
+        // Initialize AOS animations and parallax calculations
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 1200,      // Slow slide-in (1.2s) for subtle medical/professional feel
+            once: true,          // Run animations only once
+            easing: 'ease-out-cubic', // Smooth ease out deceleration
+            offset: 100,         // Offset before trigger
+            delay: 50,           // Gentle delay
+          });
+        }
         handleParallax();
       }
 
@@ -864,6 +899,33 @@
           document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
           this.classList.add('active');
         });
+      });
+
+      // Mobile Drawer Toggle Logic
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileDrawerOverlay = document.getElementById('mobileDrawerOverlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openDrawer() {
+        mobileDrawer.classList.add('active');
+        mobileDrawerOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        mobileDrawer.classList.remove('active');
+        mobileDrawerOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', openDrawer);
+      if (mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeDrawer);
+      if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener('click', closeDrawer);
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
       });
 
       // Handle Appointment Form Submit
@@ -976,27 +1038,7 @@
         toggleReviewBtn.style.display = 'inline-flex';
       });
 
-      // Global Scroll Reveal IntersectionObserver (mimicking viewport={{ once: true }})
-      function initScrollReveal() {
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        };
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target); // once: true behavior
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-section').forEach(el => {
-          revealObserver.observe(el);
-        });
-      }
+      // Scroll reveal observer replaced by AOS (Animate On Scroll) library.
 
       // Parallax scroll handler
       let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1063,5 +1105,8 @@
         }
       });
     </script>
+
+    <!-- AOS Animate On Scroll Library JS CDN -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   </body>
 </html>
