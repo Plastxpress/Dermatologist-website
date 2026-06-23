@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="src/index.css" />
   </head>
   <body>
-    <!-- Sticky Book Appointment Button for Mobile -->
-    <a href="#contact" class="btn-primary sticky-booking-btn">Book Appointment</a>
+    <!-- Persistent Sticky Mobile Bar -->
+    <div class="mobile-sticky-bar" id="mobileStickyBar">
+      <a href="tel:+919876501234" class="btn-mobile-call" id="mobileCallBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>Call</span>
+      </a>
+      <a href="#contact" class="btn-primary btn-mobile-book">Book Appointment</a>
+    </div>
 
     <!-- Navigation Bar -->
     <header class="navbar">
@@ -17,12 +25,13 @@
         <div class="logo-text" id="navbarLogo">Loading Clinic...</div>
         <nav>
           <ul class="nav-links">
-            <li><a href="#services" class="nav-link active">Services</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#aesthetic-care" class="nav-link active">Aesthetic Care</a></li>
+            <li><a href="#about" class="nav-link">About Clinic</a></li>
+            <li><a href="#doctor-profile" class="nav-link">Doctor Profile</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </nav>
-        <a href="#contact" class="btn-primary cta-pulse">Book Appointment</a>
+        <a href="#contact" class="btn-primary btn-navbar-cta cta-pulse">Book Appointment</a>
       </div>
     </header>
 
@@ -37,11 +46,32 @@
         </div>
       </section>
 
+      <!-- Trust Certification Bar -->
+      <section class="trust-cert-bar">
+        <div class="container trust-cert-container" id="trustCertContainer">
+          <!-- Dynamically Injected Trust Badges -->
+        </div>
+      </section>
+
+      <!-- Premium Aesthetic Care Section -->
+      <section id="aesthetic-care" class="container aesthetic-care-section reveal-section">
+        <div class="section-header">
+          <span class="section-badge">CLINICAL EXCELLENCE</span>
+          <h2 class="headline-md">Premium Aesthetic Care</h2>
+          <p class="body-md" style="color: var(--color-on-surface-variant)">
+            State-of-the-art treatments designed to enhance and restore your skin and hair wellness.
+          </p>
+        </div>
+        <div class="aesthetic-care-grid" id="aestheticCareGrid">
+          <!-- Dynamically Injected Treatment Cards -->
+        </div>
+      </section>
 
       <!-- About Section -->
       <section id="about" class="container about-section reveal-section">
         <div class="about-content">
           <div>
+            <span class="section-badge">ABOUT OUR CLINIC</span>
             <h2 class="headline-md" id="aboutTitle">Trusted Healthcare</h2>
             <div class="accent-line"></div>
           </div>
@@ -62,34 +92,83 @@
               <p id="aboutAddress">Loading address...</p>
             </div>
           </div>
-
-          <div class="stats-card" id="statsCard" style="width: 100%; border: none; padding: 0; box-shadow: none; margin-top: 16px;">
-            <!-- Dynamically Injected Stats -->
-          </div>
         </div>
 
-        <div class="hero-image-container">
-          <div class="doctor-card">
-            <img src="" alt="Doctor Portrait" class="doctor-img" id="doctorImg" />
-            <div class="doctor-credentials" id="doctorCredentials">
-              <span class="cred-title">EDUCATION &amp; CREDENTIALS</span>
-              <!-- Dynamically Injected -->
-            </div>
+        <div class="hero-image-container clinic-preview-container">
+          <div class="clinic-preview-card">
+            <img src="src/assets/gallery_reception.png" alt="Clinical reception area" class="clinic-preview-img" id="aboutClinicImg" loading="lazy" width="480" height="320" />
+            <div class="clinic-preview-tag">VIBRANT CLINIC LOBBY</div>
           </div>
         </div>
       </section>
 
-      <!-- Services Section -->
-      <section id="services" class="container services-section reveal-section">
-        <div class="section-header">
-          <h2 class="headline-md">Our Services</h2>
-          <p class="body-md" style="color: var(--color-on-surface-variant)" id="servicesSubtitle">
-            Specialized treatments tailored for your skin, hair, and overall health needs.
-          </p>
+      <!-- Key Insights / Highlights Section -->
+      <section class="insights-section reveal-section" id="insights">
+        <div class="container">
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Dynamically Injected Key Insights Stats Cards -->
+          </div>
         </div>
+      </section>
 
-        <div class="services-grid" id="servicesGrid">
-          <!-- Dynamically Injected -->
+
+
+      <!-- Elevated Doctor Profile Section -->
+      <section id="doctor-profile" class="doctor-profile-section reveal-section">
+        <div class="container">
+          <div class="doctor-portal-grid">
+            <div class="doctor-portal-image">
+              <img src="" alt="Doctor Portrait" class="doctor-portal-img" id="doctorPortalImg" loading="lazy" width="440" height="520" />
+              <div class="doctor-badge-overlay" id="doctorPortalBadge">Chief Dermatologist</div>
+            </div>
+            
+            <div class="doctor-portal-info">
+              <div class="doctor-header">
+                <span class="section-badge">EXPERT DOCTOR PORTAL</span>
+                <h2 class="headline-md" id="doctorPortalName">Dr. Amit Sharma</h2>
+                <p class="doctor-role" id="doctorPortalRole">Lead Dermatologist & Hair Transplant Specialist</p>
+                <div class="accent-line"></div>
+              </div>
+              
+              <p class="body-md doctor-bio" id="doctorPortalBio">
+                Biography loading...
+              </p>
+              
+              <!-- Tabbed details for credentials, fellowships, experience, associations -->
+              <div class="doctor-portal-tabs">
+                <div class="doctor-portal-tab-nav">
+                  <button class="doctor-portal-tab-btn active" data-tab="edu">Education</button>
+                  <button class="doctor-portal-tab-btn" data-tab="fellow">Fellowships</button>
+                  <button class="doctor-portal-tab-btn" data-tab="exp">Experience</button>
+                  <button class="doctor-portal-tab-btn" data-tab="assoc">Associations</button>
+                </div>
+                
+                <div class="doctor-portal-tab-content active" id="doc-tab-edu">
+                  <ul class="doctor-bullets" id="doctorPortalCredentials">
+                    <!-- Dynamic -->
+                  </ul>
+                </div>
+                
+                <div class="doctor-portal-tab-content" id="doc-tab-fellow">
+                  <ul class="doctor-bullets" id="doctorPortalFellowships">
+                    <!-- Dynamic -->
+                  </ul>
+                </div>
+
+                <div class="doctor-portal-tab-content" id="doc-tab-exp">
+                  <ul class="doctor-bullets" id="doctorPortalExperience">
+                    <!-- Dynamic -->
+                  </ul>
+                </div>
+
+                <div class="doctor-portal-tab-content" id="doc-tab-assoc">
+                  <ul class="doctor-bullets" id="doctorPortalAssociations">
+                    <!-- Dynamic -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -371,18 +450,17 @@
           nextHeroSlide();
         }, 5000);
 
-        // Doctor Card in About section
-        const doctorImg = document.getElementById('doctorImg');
-        doctorImg.src = data.doctor.image;
-        doctorImg.alt = data.doctor.name;
-        
-        const credentialsBox = document.getElementById('doctorCredentials');
-        credentialsBox.innerHTML = '<span class="cred-title">EDUCATION &amp; CREDENTIALS</span>';
-        data.doctor.credentials.forEach(cred => {
-          const item = document.createElement('div');
-          item.className = 'cred-item';
-          item.innerHTML = `<span class="cred-icon">${cred.icon}</span> ${cred.text}`;
-          credentialsBox.appendChild(item);
+        // Trust Certification Bar rendering
+        const trustCertContainer = document.getElementById('trustCertContainer');
+        trustCertContainer.innerHTML = '';
+        (data.trustBar || []).forEach(item => {
+          const badge = document.createElement('div');
+          badge.className = 'trust-badge';
+          badge.innerHTML = `
+            <span class="trust-badge-icon">${item.icon}</span>
+            <span class="trust-badge-text">${item.text}</span>
+          `;
+          trustCertContainer.appendChild(badge);
         });
 
         // About section content
@@ -390,74 +468,111 @@
         document.getElementById('aboutDesc').textContent = data.about.description;
         document.getElementById('aboutAddress').textContent = data.about.address;
         
-        // About Stats Grid
-        const statsCard = document.getElementById('statsCard');
-        statsCard.innerHTML = '';
-        data.about.stats.forEach(stat => {
-          const item = document.createElement('div');
-          item.className = 'stat-item';
-          item.innerHTML = `<div class="stat-number">${stat.number}</div><div class="stat-label">${stat.label}</div>`;
-          statsCard.appendChild(item);
+        // Standalone Key Insights Highlights Section rendering
+        const insightsGrid = document.getElementById('insightsGrid');
+        insightsGrid.innerHTML = '';
+        data.about.stats.forEach((stat, idx) => {
+          const card = document.createElement('div');
+          card.className = 'insight-card hover-lift reveal-stagger-item';
+          card.style.transitionDelay = `${idx * 0.1}s`;
+          card.innerHTML = `
+            <div class="insight-number">${stat.number}</div>
+            <div class="insight-label">${stat.label}</div>
+          `;
+          insightsGrid.appendChild(card);
         });
 
-        // 4. Services Section
-        const servicesGrid = document.getElementById('servicesGrid');
-        servicesGrid.innerHTML = '';
-        data.services.forEach((service, idx) => {
+        // Doctor Portal Section Details
+        document.getElementById('doctorPortalImg').src = data.doctor.image;
+        document.getElementById('doctorPortalImg').alt = data.doctor.name;
+        document.getElementById('doctorPortalName').textContent = data.doctor.name;
+        document.getElementById('doctorPortalRole').textContent = data.doctor.role || "Lead Dermatologist";
+        document.getElementById('doctorPortalBio').textContent = data.doctor.biography || "";
+        
+        // Render credentials bullets
+        const docCreds = document.getElementById('doctorPortalCredentials');
+        docCreds.innerHTML = '';
+        data.doctor.credentials.forEach(c => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="bullet-icon">${c.icon}</span> <span class="bullet-text"><strong>${c.text.split(' - ')[0]}</strong>${c.text.includes(' - ') ? ' - ' + c.text.split(' - ')[1] : ''}</span>`;
+          docCreds.appendChild(li);
+        });
+
+        // Render fellowships bullets
+        const docFellows = document.getElementById('doctorPortalFellowships');
+        docFellows.innerHTML = '';
+        (data.doctor.fellowships || []).forEach(f => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="bullet-icon">🛡️</span> <span class="bullet-text">${f}</span>`;
+          docFellows.appendChild(li);
+        });
+
+        // Render experience bullets
+        const docExp = document.getElementById('doctorPortalExperience');
+        docExp.innerHTML = '';
+        (data.doctor.experience || []).forEach(e => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="bullet-icon">📈</span> <span class="bullet-text">${e}</span>`;
+          docExp.appendChild(li);
+        });
+
+        // Render associations bullets
+        const docAssoc = document.getElementById('doctorPortalAssociations');
+        docAssoc.innerHTML = '';
+        (data.doctor.associations || []).forEach(a => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="bullet-icon">🤝</span> <span class="bullet-text">${a}</span>`;
+          docAssoc.appendChild(li);
+        });
+
+        // Setup Doctor Portal tab-switching
+        const docTabButtons = document.querySelectorAll('.doctor-portal-tab-btn');
+        const docTabContents = document.querySelectorAll('.doctor-portal-tab-content');
+        
+        docTabButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            docTabButtons.forEach(b => b.classList.remove('active'));
+            docTabContents.forEach(c => c.classList.remove('active'));
+            
+            this.classList.add('active');
+            const tabId = `doc-tab-${this.getAttribute('data-tab')}`;
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+              targetContent.classList.add('active');
+            }
+          });
+        });
+
+        // Mobile Sticky Bar setups
+        const mobileCallBtn = document.getElementById('mobileCallBtn');
+        if (mobileCallBtn) {
+          mobileCallBtn.href = `tel:${data.contact.phone.replace(/\s+/g, '')}`;
+        }
+
+        // 4. Premium Aesthetic Care Section rendering
+        const aestheticCareGrid = document.getElementById('aestheticCareGrid');
+        aestheticCareGrid.innerHTML = '';
+        data.aestheticCare.forEach((treatment, idx) => {
           const card = document.createElement('div');
-          card.className = 'service-card hover-lift reveal-stagger-item';
-          card.style.transitionDelay = `${idx * 0.1}s`;
-          
-          let iconSvg = '';
-          if (service.iconType === 'skin') {
-            iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`;
-          } else if (service.iconType === 'cream') {
-            iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7H5a7 7 0 0 0 7 7z"></path><path d="M19 15V9a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"></path><path d="M12 2v5"></path></svg>`;
-          } else if (service.iconType === 'scissors') {
-            iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>`;
-          } else {
-            iconSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`;
-          }
-          
-          let badgeHtml = '';
-          if (service.badge) {
-            const badgeClass = service.badge.toLowerCase().includes('holistic') ? 'holistic' : 'specialty';
-            badgeHtml = `<span class="service-badge ${badgeClass}">${service.badge}</span>`;
-          }
-
-          let tagsHtml = '';
-          if (service.tags && service.tags.length > 0) {
-            tagsHtml = `<div class="service-tags">` + 
-              service.tags.map(t => `<span class="service-tag"><span class="service-tag-icon">✔</span> ${t}</span>`).join('') +
-              `</div>`;
-          }
-
-          let linkHtml = '';
-          if (service.linkText) {
-            linkHtml = `
-              <a href="${service.linkUrl || '#contact'}" class="service-link ${service.colorType}">
-                ${service.linkText}
+          card.className = 'aesthetic-card hover-lift reveal-stagger-item';
+          card.style.transitionDelay = `${idx * 0.08}s`;
+          card.innerHTML = `
+            <div class="aesthetic-card-img-wrapper">
+              <img src="${treatment.image}" alt="${treatment.title}" class="aesthetic-card-img" loading="lazy" width="360" height="240" />
+            </div>
+            <div class="aesthetic-card-content">
+              <h3 class="title-lg aesthetic-card-title">${treatment.title}</h3>
+              <p class="body-md aesthetic-card-desc">${treatment.description}</p>
+              <a href="#contact" class="btn-primary aesthetic-card-btn">
+                Book Appointment
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </a>
-            `;
-          }
-
-          card.innerHTML = `
-            <div class="service-top">
-              <div class="service-icon-box icon-${service.colorType}">
-                ${iconSvg}
-              </div>
-              ${badgeHtml}
             </div>
-            <h3 class="title-lg service-title">${service.title}</h3>
-            <p class="body-md service-desc">${service.description}</p>
-            ${tagsHtml}
-            ${linkHtml}
           `;
-          servicesGrid.appendChild(card);
+          aestheticCareGrid.appendChild(card);
         });
 
         // 5. Clinic Gallery Section
@@ -491,11 +606,11 @@
         document.getElementById('contactDesc').textContent = data.contact.description;
         
         const problemAreaSelect = document.getElementById('problemArea');
-        problemAreaSelect.innerHTML = '<option value="" disabled selected>Select medical issue...</option>';
-        data.services.forEach(s => {
+        problemAreaSelect.innerHTML = '<option value="" disabled selected>Select treatment...</option>';
+        data.aestheticCare.forEach(t => {
           const opt = document.createElement('option');
-          opt.value = s.title;
-          opt.textContent = s.title;
+          opt.value = t.title;
+          opt.textContent = t.title;
           problemAreaSelect.appendChild(opt);
         });
         const otherOpt = document.createElement('option');

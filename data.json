@@ -1,11 +1,33 @@
 {
-  "clinicName": "Vibrant Skin & Hair Clinic",
+  "clinicName": "Aura Skin & Hair Clinic",
+  "trustBar": [
+    { "icon": "🏆", "text": "10+ Years of Excellence" },
+    { "icon": "🛡️", "text": "ISO 9001:2015 Certified" },
+    { "icon": "⚡", "text": "FDA Approved Tech" },
+    { "icon": "★", "text": "1,200+ Google Reviews (4.9★)" }
+  ],
   "doctor": {
-    "name": "Dr. Amit Sharma",
+    "name": "Dr. Rohan Malhotra",
+    "role": "Lead Dermatologist & Hair Transplant Specialist",
     "image": "src/assets/doctor.png",
+    "biography": "Dr. Rohan Malhotra is a double-credentialed dermatologist specializing in advanced clinical dermatology, aesthetic lasers, and hair transplantation. With a patient-centric philosophy, he integrates state-of-the-art technologies with evidence-based medical therapies to deliver optimal health and cosmetic results.",
     "credentials": [
       { "icon": "🎓", "text": "MBBS, MD - Dermatology & Venereology" },
       { "icon": "🛡️", "text": "Fellowship in Lasers & Aesthetic Medicine" }
+    ],
+    "fellowships": [
+      "Fellowship in Advanced Laser & Aesthetic Surgery (Singapore)",
+      "Certified Injector of Dermal Fillers & Botox",
+      "Specialized Training in FUE Hair Restoration Surgery"
+    ],
+    "experience": [
+      "10+ Years of Active Clinical Practice in Dermatology",
+      "Conducted over 7,000+ successful clinical and laser procedures",
+      "Speaker at various National Aesthetic Conferences"
+    ],
+    "associations": [
+      "Lifetime Member of Indian Association of Dermatologists, Venereologists and Leprologists (IADVL)",
+      "Member of Cosmetic Dermatology Society of India (CDSI)"
     ]
   },
   "hero": {
@@ -76,51 +98,45 @@
     }
   ],
   "about": {
-    "title": "Trusted Healthcare in Surat",
-    "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs under the direction of Dr. Amit Sharma.",
-    "address": "102, Sun Plaza, Ring Road, Near Diamond Market, Surat, Gujarat 395002",
+    "title": "Trusted Healthcare in Bengaluru",
+    "description": "Offering expert care in dermatology, hair health, general medicine, and homeopathy. We focus on patient-centric, personalized treatment plans tailored to your unique needs under the direction of Dr. Rohan Malhotra.",
+    "address": "Suite 405, 4th Floor, Skyline Tower, MG Road, Ashok Nagar, Bengaluru, Karnataka 560001",
     "stats": [
       { "number": "10+", "label": "Years of Excellence" },
-      { "number": "3", "label": "Clinic Locations" },
       { "number": "7K+", "label": "Treatments Done" },
       { "number": "FDA", "label": "Approved Tech" }
     ]
   },
-  "services": [
+  "aestheticCare": [
     {
-      "title": "Skin Care",
-      "badge": "Specialty",
-      "description": "Comprehensive treatment for skin diseases, acne, pimples, and fungal infections using advanced diagnostic protocols.",
-      "linkText": "Learn more",
-      "linkUrl": "#contact",
-      "iconType": "skin",
-      "colorType": "blue"
+      "title": "Hair Treatments",
+      "description": "Advanced therapies including FUE hair transplants, PRP scalp rejuvenation, and hair fall control protocols designed to restore thickness and vitality.",
+      "image": "src/assets/hair_treatment.png"
     },
     {
-      "title": "Cosmetic",
-      "badge": "",
-      "description": "Hydra Facial, Skin Lightening and Brightening, Black Pigmentation treatment.",
-      "linkText": "Explore",
-      "linkUrl": "#contact",
-      "iconType": "cream",
-      "colorType": "berry"
+      "title": "Skin Treatment",
+      "description": "Targeted therapies for acne scars, pigmentation, microdermabrasion, and clinical facials to restore a radiant and healthy complexion.",
+      "image": "src/assets/skin_treatment.png"
     },
     {
-      "title": "Hair & Specialty",
-      "badge": "",
-      "description": "Advanced Hair Care solutions, alongside specialized management for Abscesses and Boils.",
-      "linkText": "View details",
-      "linkUrl": "#contact",
-      "iconType": "scissors",
-      "colorType": "blue"
+      "title": "Plastic Surgery Treatments",
+      "description": "Premium cosmetic surgical consultations and procedures for facial contouring, rhinoplasty, and structural skin modifications.",
+      "image": "src/assets/plastic_surgery.png"
     },
     {
-      "title": "General Practice",
-      "badge": "Holistic Care",
-      "description": "Integrating traditional General Physician services with Homeopathy for comprehensive wellness and root-cause treatment.",
-      "tags": ["Homeopathy", "Physician"],
-      "iconType": "cross",
-      "colorType": "green"
+      "title": "Laser Treatment",
+      "description": "FDA-approved laser therapies for permanent hair reduction, skin resurfacing, and precise vascular or pigmentation treatments.",
+      "image": "src/assets/laser_treatment.png"
+    },
+    {
+      "title": "Dermatology treatment",
+      "description": "Comprehensive clinical diagnosis and medical care for complex skin conditions, eczema, psoriasis, rashes, and fungal infections.",
+      "image": "src/assets/dermatology_treatment.png"
+    },
+    {
+      "title": "Anti Ageing Treatment",
+      "description": "Restorative non-surgical treatments including clinical wrinkle reductions, dermal fillers, and thread lifts to regain youthful elasticity.",
+      "image": "src/assets/anti_ageing.png"
     }
   ],
   "testimonials": {
@@ -151,7 +167,7 @@
   "contact": {
     "title": "Schedule Your Consultation",
     "description": "Take the first step towards healthier skin and body. Fill in your details below to request an appointment.",
-    "email": "info@vibrantskinclinic.com",
-    "phone": "+91 98765 01234"
+    "email": "contact@auraskinclinic.com",
+    "phone": "+91 98123 45678"
   }
 }
